@@ -1,5 +1,6 @@
 🍻 Kőbányai Clicker Game 🍺
-Welcome to Beer Clicker Game, a fun and interactive game built using Vue.js. Click your way to brew more beers, unlock achievements, and climb the leaderboard! 🍻
+
+Welcome to my Kőbányai Clicker Game, a fun and interactive game built using Vue.js. Click your way to brew more beers, unlock achievements, and climb the leaderboard! 🍻
 
 🚀 Features
 Click to Collect Beers: Tap away to brew more beer!
