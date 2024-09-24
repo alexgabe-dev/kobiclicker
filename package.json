@@ -1,0 +1,17 @@
+{
+  "name": "kobanyai-clicker",
+  "version": "0.0.1",
+  "description": "Kőbányai stílusú clicker játék.",
+  "main": "script.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Alex Gabe",
+  "license": "ISC",
+  "dependencies": {
+    "minimist": "^1.2.8",
+    "vue": "^3.5.8",
+    "vue.js": "^0.3.2",
+    "vue2": "^1.0.0"
+  }
+}

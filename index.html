@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kőbányai Clicker Game</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
+    <script src="app.js" defer></script>
+</head>
+<body>
+    <div id="app">
+        <header>
+            <h1>Kőbányai Clicker</h1>
+        </header>
+        <main>
+            <div class="menu" v-if="!loggedIn">
+                <button @click="showSection('register')" class="menu-button">Register</button>
+                <button @click="showSection('login')" class="menu-button">Login</button>
+                <button @click="showSection('credits')" class="menu-button">Credits</button>
+                <button @click="showSection('settings')" class="menu-button">Settings</button>
+                <button @click="showSection('patchnotes')" class="menu-button">Patch Notes</button>
+            </div>
+            <div class="menu" v-else>
+                <button @click="logout" class="menu-button">Logout</button>
+                <button @click="showSection('leaderboard')" class="menu-button">Leaderboard</button>
+                <button @click="showSection('credits')" class="menu-button">Credits</button>
+                <button @click="showSection('settings')" class="menu-button">Settings</button>
+                <button @click="showSection('patchnotes')" class="menu-button">Patch Notes</button>
+            </div>
+
+            <div v-if="currentSection === 'register'" class="form-section">
+                <h2>Register</h2>
+                <input type="text" v-model="username" placeholder="Enter Username" required />
+                <button @click="registerUser" class="btn">Get Unique ID</button>
+                <div v-if="userCode">Your Unique ID: <strong>{{ userCode }}</strong></div>
+            </div>
+
+            <div v-if="currentSection === 'login'" class="form-section">
+                <h2>Login</h2>
+                <input type="text" v-model="username" placeholder="Enter Username" required />
+                <input type="text" v-model="userCode" placeholder="Enter Your 5-Digit Code" required />
+                <button @click="loadUserProgress" class="btn">Login</button>
+            </div>
+
+            <div v-if="currentSection === 'credits'" class="form-section">
+                <h2>Credits</h2>
+                <p>Developed by Your Name</p>
+            </div>
+
+            <div v-if="currentSection === 'settings'" class="form-section">
+                <h2>Settings</h2>
+                <p>Settings options coming soon!</p>
+                <div v-if="loggedIn">
+                    <h3>Delete Account</h3>
+                    <p>Are you sure you want to delete your account? This action cannot be undone.</p>
+                    <input type="checkbox" v-model="deleteCheckboxChecked" /> 
+                    <label>I understand that my account will be permanently deleted.</label>
+                    <button @click="deleteAccount" :disabled="!deleteCheckboxChecked" class="btn">Delete Account</button>
+                </div>
+            </div>
+
+            <div v-if="currentSection === 'patchnotes'" class="form-section">
+                <h2>Patch Notes</h2>
+                <ul>
+                    <li>Version 1.0: Initial release.</li>
+                    <li>Version 1.1: Added login system and achievements.</li>
+                </ul>
+            </div>
+
+            <div class="game" v-if="loggedIn && currentSection === 'game'">
+                <h2>Welcome, {{ username }}!</h2>
+                <div class="points-counter">
+                    <p>Beers Collected: <span>{{ points }}</span></p>
+                </div>
+                <button class="click-button" @click="clickBeer">Click for Beer!</button>
+
+                <div class="upgrades">
+                    <h3>Upgrades</h3>
+                    <div v-for="upgrade in upgrades" :key="upgrade.id" class="upgrade-item">
+                        <p>{{ upgrade.name }} - Cost: {{ upgrade.cost }} beers</p>
+                        <button @click="buyUpgrade(upgrade)" class="btn">Buy</button>
+                    </div>
+                </div>
+
+                <div class="achievements" v-if="achievements.length">
+                    <h3>Achievements</h3>
+                    <ul>
+                        <li v-for="achievement in achievements" :key="achievement.id">{{ achievement.name }}</li>
+                    </ul>
+                </div>
+
+                <div class="notification" v-if="notification">{{ notification }}</div>
+            </div>
+
+            <div v-if="currentSection === 'leaderboard'" class="leaderboard-section">
+                <h2>Leaderboard</h2>
+                <ul>
+                    <li v-for="user in leaderboard" :key="user.username">{{ user.username }}: {{ user.points }} Points</li>
+                </ul>
+                <button @click="showSection('game')">Back to Game</button>
+            </div>
+
+            <div v-if="showPopup" class="popup">
+                <div class="popup-content">
+                    <h3>Your Unique ID</h3>
+                    <p><strong>{{ userCode }}</strong></p>
+                    <input type="checkbox" v-model="checkboxChecked" />
+                    <label>I wrote down my unique ID and I will remember it for later use.</label>
+                    <button @click="closePopup" :disabled="!checkboxChecked">Close</button>
+                </div>
+            </div>
+        </main>
+    </div>
+</body>
+</html>

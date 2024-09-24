@@ -1,0 +1,50 @@
+{
+    "Ninjaboi": {
+        "code": "41097",
+        "points": 20472222222455,
+        "achievements": [
+            "10 Beers Collected",
+            "50 Beers Collected",
+            "100 Beers Collected"
+        ]
+    },
+    "Teszt": {
+        "code": "69669",
+        "points": 50659179556,
+        "achievements": [
+            "10 Beers Collected",
+            "50 Beers Collected",
+            "100 Beers Collected"
+        ]
+    },
+    "nEwi": {
+        "code": "42036",
+        "points": 52,
+        "achievements": []
+    },
+    "plsWok": {
+        "code": "97044",
+        "points": 69,
+        "achievements": []
+    },
+    "tesyt4": {
+        "code": "57429",
+        "points": 51,
+        "achievements": []
+    },
+    "Nrw2": {
+        "code": "18688",
+        "points": 520,
+        "achievements": [
+            "First Beer",
+            "10 Beers",
+            "50 Beers",
+            "Beer Enthusiast",
+            "100 Beers",
+            "Collector",
+            "200 Beers",
+            "Brewmaster",
+            "500 Beers"
+        ]
+    }
+}

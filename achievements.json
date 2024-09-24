@@ -1,0 +1,14 @@
+[
+    {"id": 1, "name": "First Beer", "pointsRequired": 1, "unlocked": false},
+    {"id": 2, "name": "10 Beers", "pointsRequired": 10, "unlocked": false},
+    {"id": 3, "name": "50 Beers", "pointsRequired": 50, "unlocked": false},
+    {"id": 4, "name": "100 Beers", "pointsRequired": 100, "unlocked": false},
+    {"id": 5, "name": "200 Beers", "pointsRequired": 200, "unlocked": false},
+    {"id": 6, "name": "500 Beers", "pointsRequired": 500, "unlocked": false},
+    {"id": 7, "name": "1,000 Beers", "pointsRequired": 1000, "unlocked": false},
+    {"id": 8, "name": "Beer Enthusiast", "pointsRequired": 50, "unlocked": false},
+    {"id": 9, "name": "Brewmaster", "pointsRequired": 200, "unlocked": false},
+    {"id": 10, "name": "Collector", "pointsRequired": 100, "unlocked": false},
+    {"id": 11, "name": "Beer Festival Champion", "pointsRequired": 1000, "unlocked": false},
+    {"id": 12, "name": "Ultimate Brewer", "pointsRequired": 5000, "unlocked": false}
+]
